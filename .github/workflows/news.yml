@@ -1,4 +1,4 @@
-name: Run Python Script at Mexico City Noon
+name: Tweet news
 
 on:
   schedule:
