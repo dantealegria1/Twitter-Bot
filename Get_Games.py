@@ -1,7 +1,9 @@
 import random
 import requests
 import json
+from dotenv import load_dotenv
 
+load_dotenv()
 class RAWGGameFetcher:
     def __init__(self, api_key):
         self.api_key = api_key
@@ -86,7 +88,7 @@ class RAWGGameFetcher:
         return tweet
 
 def send_info():
-    API_KEY = "59b8404986d04beab7751564af2ae95f"  # Replace with your RAWG API key
+    API_KEY = os.getenv('GAMES_API_KEY')
     game_fetcher = RAWGGameFetcher(API_KEY)
     random_game_info = game_fetcher.get_random_game()
     content = game_fetcher.format_game_tweet(random_game_info)
@@ -94,7 +96,7 @@ def send_info():
 
 # Example usage
 if __name__ == "__main__":
-    API_KEY = "59b8404986d04beab7751564af2ae95f"  # Replace with your RAWG API key
+    API_KEY = os.getenv('GAMES_API_KEY')
     game_fetcher = RAWGGameFetcher(API_KEY)
 
     # Get a random game

@@ -1,14 +1,14 @@
 import tweepy
 import os
 from Get_Games import send_info
+from dotenv import load_dotenv
 
+load_dotenv()
 # Store these securely (e.g., in environment variables)
 API_KEY = os.getenv('API_KEY')
 API_SECRET_KEY = os.getenv('API_SECRET_KEY') 
 access_token = os.getenv('access_token')
 access_token_secret = os.getenv('access_token_secret')
-
-
 
 # Initialize OAuth 1.0a handler
 auth = tweepy.OAuth1UserHandler(
