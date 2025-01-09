@@ -3,7 +3,7 @@ name: Tweet for games
 on:
   schedule:
     # Runs at 12 pm mexico city
-    - cron: '0 /18 * * *'
+    - cron: '0 18 * * *'
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
