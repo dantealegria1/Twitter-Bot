@@ -1,7 +1,3 @@
-Here’s an updated version of the README to reflect the functionality and use of GitHub Actions for scheduling:
-
----
-
 # Twitter Bot
 
 This repository contains a Python script that retrieves data from the [RAWG API](https://rawg.io/apidocs) and the [News API](https://newsapi.org/) to compose and post tweets. The script is designed to be run at scheduled intervals using **GitHub Actions**.
@@ -37,12 +33,12 @@ cd Twitter-Bot
 Create a `.env` file in the root directory and add the following:
 
 ```env
-RAWG_API_KEY=your_rawg_api_key
-NEWS_API_KEY=your_news_api_key
-TWITTER_API_KEY=your_twitter_api_key
-TWITTER_API_SECRET=your_twitter_api_secret
-TWITTER_ACCESS_TOKEN=your_twitter_access_token
-TWITTER_ACCESS_TOKEN_SECRET=your_twitter_access_token_secret
+API_KEY = ""
+API_SECRET_KEY = ""
+ACCESS_TOKEN = ""
+ACCESS_TOKEN_SECRET = ""
+
+GAMES_API_KEY = "59b8404986d04beab7751564af2ae95f"  # Replace with your RAWG API key
 ```
 
 ### 3. Add `.env` to `.gitignore`
@@ -77,7 +73,7 @@ pip install -r requirements.txt
 You can run the script locally for testing:
 
 ```bash
-python bot.py
+python main.py or python main_Games.py
 ```
 
 ### Automate with GitHub Actions
