@@ -4,12 +4,14 @@ from Get_Games import *
 from tech_api import get_tech_news
 from dotenv import load_dotenv
 
+
+# Load environment variables from .env file
 load_dotenv()
-# Store these securely (e.g., in environment variables)
-API_KEY = os.getenv('API_KEY')
-API_SECRET_KEY = os.getenv('API_SECRET_KEY') 
-access_token = os.getenv('ACCESS_TOKEN')
-access_token_secret = os.getenv('ACCESS_TOKEN_SECRET')
+
+api_key = os.environ['API_KEY']
+api_secret = os.environ['API_SECRET_KEY']
+access_token = os.environ['ACCESS_TOKEN']
+access_token_secret = os.environ['ACCESS_TOKEN_SECRET']
 
 # Initialize OAuth 1.0a handler
 auth = tweepy.OAuth1UserHandler(
