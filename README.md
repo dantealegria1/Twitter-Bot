@@ -37,8 +37,7 @@ API_KEY = ""
 API_SECRET_KEY = ""
 ACCESS_TOKEN = ""
 ACCESS_TOKEN_SECRET = ""
-
-GAMES_API_KEY = "59b8404986d04beab7751564af2ae95f"  # Replace with your RAWG API key
+GAMES_API_KEY = ""
 ```
 
 ### 3. Add `.env` to `.gitignore`
@@ -80,15 +79,14 @@ python main.py or python main_Games.py
 
 1. **Secrets Configuration**:
    - Add the required API keys as [GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) in your repository:
-     - `RAWG_API_KEY`
-     - `NEWS_API_KEY`
-     - `TWITTER_API_KEY`
-     - `TWITTER_API_SECRET`
-     - `TWITTER_ACCESS_TOKEN`
-     - `TWITTER_ACCESS_TOKEN_SECRET`
+   - API_KEY
+   - API_SECRET_KEY
+   - ACCESS_TOKEN
+   - ACCESS_TOKEN_SECRET
+   - GAMES_API_KEY
 
 2. **Workflow File**:
-   - The `.github/workflows/twitter-bot.yml` file defines the schedule for running the script.
+   - The `.github/workflows/news.yml` and `.github/workflows/games.yml` files defines the schedule for running the script.
 
 3. **Enable GitHub Actions**:
    - Ensure GitHub Actions is enabled for your repository.
