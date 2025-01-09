@@ -9,7 +9,7 @@ load_dotenv()
 API_KEY = os.getenv('API_KEY')
 API_SECRET_KEY = os.getenv('API_SECRET_KEY') 
 access_token = os.getenv('ACCESS_TOKEN')
-acces_token_secret = os.getenv('ACCESS_TOKEN_SECRET')
+access_token_secret = os.getenv('ACCESS_TOKEN_SECRET')
 
 # Initialize OAuth 1.0a handler
 auth = tweepy.OAuth1UserHandler(
