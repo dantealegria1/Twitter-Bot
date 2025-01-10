@@ -25,10 +25,10 @@ jobs:
     
     - name: Run script
       env:
-        API_KEY: ${{ secrets.TWITTER_API_KEY }}         # Changed name to match GitHub secrets
-        API_SECRET_KEY: ${{ secrets.TWITTER_API_SECRET_KEY }}
-        ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-        ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+        API_KEY: ${{ secrets.API_KEY }}         # Changed name to match GitHub secrets
+        API_SECRET_KEY: ${{ secrets.API_SECRET_KEY }}
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
         GAMES_API_KEY: ${{ secrets.GAMES_API_KEY }}
       run: |
         # Debug step to check if variables are set (will be masked in logs)
