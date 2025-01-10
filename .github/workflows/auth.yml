@@ -1,6 +1,9 @@
 name: Test Twitter Authentication
 
 on:
+  push:
+    branches:
+      - main
   # Allow manual trigger
   workflow_dispatch:
   # Optional: Run on pull requests to catch credential issues early
