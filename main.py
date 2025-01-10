@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-api_key = os.environ['API_KEY']
-api_secret = os.environ['API_SECRET_KEY']
+API_KEY = os.environ['API_KEY']
+API_SECRET_KEY = os.environ['API_SECRET_KEY']
 access_token = os.environ['ACCESS_TOKEN']
 access_token_secret = os.environ['ACCESS_TOKEN_SECRET']
 
