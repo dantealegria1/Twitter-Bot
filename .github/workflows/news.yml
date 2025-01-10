@@ -30,5 +30,5 @@ jobs:
         API_SECRET_KEY: ${{ secrets.API_SECRET_KEY }}
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
-        GAMES_API_KEY: ${{ secrets.GAMES_API_KET }} 
+        NEWS_API: ${{ secrets.NEWS_API }} 
       run: python main.py
