@@ -1,8 +1,14 @@
 
 from newsapi import NewsApiClient
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+# Store these securely (e.g., in environment variables)
+NEWS_API = os.getenv('NEWS_API')
 
 # Initialize NewsAPI client
-newsapi = NewsApiClient(api_key='a269ba68b9a54a6f9259f24acff47662')
+newsapi = NewsApiClient(api_key=NEWS_API)
 
 def get_tech_news():
     """
@@ -48,4 +54,4 @@ if __name__ == "__main__":
         print(f"📝 Description: {tech_news['description']}")
         print(f"🔗 URL: {tech_news['url']}")
         print(f"🖼️ Image URL: {tech_news['image_url']}")
-        print(f"📖 Content: {tech_news['content']}")
+

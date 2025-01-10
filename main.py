@@ -4,7 +4,6 @@ from Get_Games import *
 from tech_api import get_tech_news
 from dotenv import load_dotenv
 
-
 # Load environment variables from .env file
 load_dotenv()
 
