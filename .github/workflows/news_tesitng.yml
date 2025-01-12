@@ -1,9 +1,10 @@
 name: Test news
 
 on:
-  schedule:
+  push:
+    branches:
+      - main
     # Runs every 24 hours
-    - cron: '0 */24 * * *'
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
