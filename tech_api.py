@@ -17,7 +17,7 @@ def get_tech_news():
     """
     # Try English first
     news = newsapi.get_everything(
-        q='technology OR gaming OR tech OR game OR playstation OR xbox OR nintendo OR apple',
+        q='technology OR gaming OR tech OR game OR playstation OR xbox OR nintendo OR apple OR cellphone OR phone OR PC',
         language='en',
         sort_by='popularity',
         from_param=yesterday,
@@ -27,7 +27,7 @@ def get_tech_news():
     # If no English articles found, try Spanish
     if not news['articles']:
         news = newsapi.get_everything(
-            q='tecnología OR videojuegos OR juego OR xbox OR playstation OR xbox OR nintendo OR apple',
+            q='tecnología OR videojuegos OR juego OR xbox OR playstation OR xbox OR nintendo OR apple OR celular OR telefono OR PC',
             language='es',
             sort_by='popularity',
             from_param=yesterday,
