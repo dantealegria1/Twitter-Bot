@@ -1,4 +1,3 @@
-
 from newsapi import NewsApiClient
 from dotenv import load_dotenv
 import os
