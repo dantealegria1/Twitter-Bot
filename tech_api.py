@@ -1,5 +1,6 @@
 from newsapi import NewsApiClient
 from dotenv import load_dotenv
+from datetime import datetime, timedelta
 import os
 
 load_dotenv()
