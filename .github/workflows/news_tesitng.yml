@@ -32,4 +32,4 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
         NEWS_API: ${{ secrets.NEWS_API }} 
-      run: python tech_news.py
+      run: python tech_api.py
