@@ -8,6 +8,7 @@ NEWS_API = os.getenv('NEWS_API')
 
 # Initialize NewsAPI client
 newsapi = NewsApiClient(api_key=NEWS_API)
+today = datetime.now().strftime('%Y-%m-%d')
 
 def get_tech_news():
     """
@@ -16,7 +17,9 @@ def get_tech_news():
     news = newsapi.get_everything(
         q='technology OR gaming',
         language='en',
-        sort_by='publishedAt',
+        sort_by='popularity',
+        from_param=today,
+        to=today,
         page_size=1  # Fetch only one article
     )
     if news['articles']:
