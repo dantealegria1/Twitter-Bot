@@ -26,6 +26,32 @@ class GameDealsFinder:
             return stores_dict
         return {}
 
+    def generate_hashtags(self, deal: dict, store_name: str) -> str:
+        """Generate relevant hashtags for the deal"""
+        hashtags = ["#GameDeals"]
+        
+        # Add store-specific hashtag
+        store_hashtag = f"#{store_name.replace(' ', '')}"
+        hashtags.append(store_hashtag)
+        
+        # Add gaming hashtags
+        hashtags.append("#Gaming")
+        
+        # Add price-based hashtags
+        if float(deal['savings']) >= 75:
+            hashtags.append("#BigSale")
+        
+        # Add rating-based hashtags
+        if deal.get('metacriticScore') and float(deal['metacriticScore']) >= 85:
+            hashtags.append("#MustPlay")
+        
+        # Game title hashtag (simplified)
+        game_hashtag = "#" + "".join(x for x in deal['title'] if x.isalnum())
+        if len(game_hashtag) > 2:  # Only add if meaningful
+            hashtags.append(game_hashtag)
+            
+        return " ".join(hashtags)
+
     def format_tweet(self, deal: dict) -> str:
         """
         Format a single deal as a tweet (max 280 characters)
@@ -38,8 +64,9 @@ class GameDealsFinder:
         sale_price = f"${deal['salePrice']}"
         normal_price = f"${deal['normalPrice']}"
         
-        # Start with the game title and basic price info
-        tweet = f"🎮 {deal['title']}\n"
+        # Start with alert and the game title
+        tweet = f"🚨 New Deal Alert: 🎮\n\n"
+        tweet += f"{deal['title']}\n"
         tweet += f"💰 {sale_price} (was {normal_price}, -{savings}%)\n"
         tweet += f"🏪 {store_name}\n"
         
@@ -54,11 +81,12 @@ class GameDealsFinder:
             tweet += f"⭐ {' | '.join(ratings)}\n"
         
         # Add deal URL
-        tweet += f"🔗 https://www.cheapshark.com/redirect?dealID={deal['dealID']}"
+        tweet += f"🔗 https://www.cheapshark.com/redirect?dealID={deal['dealID']}\n"
         
-        # Add hashtags if there's room
-        if len(tweet) <= 240:  # Leave room for hashtags
-            tweet += "\n#GameDeals"
+        # Generate and add hashtags if there's room
+        hashtags = self.generate_hashtags(deal, store_name)
+        if len(tweet) + len(hashtags) <= 280:
+            tweet += f"\n{hashtags}"
             
         return tweet
 
@@ -86,10 +114,8 @@ class GameDealsFinder:
         on_sale_only: bool = True,
         output_format: Optional[str] = None
     ):
-        """
-        Fetch game deals with comprehensive filtering options.
-        [Previous docstring contents remain the same]
-        """
+        """[Previous implementation remains the same]"""
+        # [Previous implementation remains the same]
         if store_ids:
             store_ids = [sid for sid in store_ids if self.stores.get(sid, {}).get('is_active', False)]
             
@@ -104,7 +130,6 @@ class GameDealsFinder:
             "steamworks": 1 if steamworks_only else 0,
         }
         
-        # [Previous parameter handling code remains the same]
         if store_ids:
             params["storeID"] = ",".join(store_ids)
         if max_price:
@@ -158,11 +183,11 @@ if __name__ == "__main__":
     # Example usage with multiple stores
     search_params = {
         "store_ids": ["1", "7", "8", "11", "25"],  # Steam, GOG, Origin, Humble Store, Epic
-        "min_price": 1,
-        "max_price": 90,
-        "min_metacritic": 55,
-        "min_steam_rating": 55,
-        "max_age_hours": 300,
+        "min_price": 5,
+        "max_price": 60,
+        "min_metacritic": 75,
+        "min_steam_rating": 75,
+        "max_age_hours": 48,
         "sort_by": "Savings",
         "desc": True,
         "aaa_only": True,
