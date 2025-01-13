@@ -183,17 +183,17 @@ if __name__ == "__main__":
     # Example usage with multiple stores
     search_params = {
         "store_ids": ["1", "7", "8", "11", "25"],  # Steam, GOG, Origin, Humble Store, Epic
-        "min_price": 5,
-        "max_price": 60,
-        "min_metacritic": 75,
-        "min_steam_rating": 75,
-        "max_age_hours": 48,
+        "min_price": 1,
+        "max_price": 100,
+        "min_metacritic": 35,
+        "min_steam_rating": 45,
+        "max_age_hours": 108,
         "sort_by": "Savings",
         "desc": True,
         "aaa_only": True,
         "steamworks_only": False,
         "on_sale_only": True,
-        "page_size": 10  # Reduced to show fewer tweets as example
+        "page_size": 20  # Reduced to show fewer tweets as example
     }
     
     print("Searching for game deals...")
