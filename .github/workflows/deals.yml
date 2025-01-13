@@ -1,4 +1,4 @@
-name: Get news
+name: Get deals
 
 on:
   schedule:
