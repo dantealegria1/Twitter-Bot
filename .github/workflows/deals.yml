@@ -1,6 +1,8 @@
 name: Get news
 
 on:
+  schedule:
+    - cron: '0 18 * * *' # Runs at 18:00 UTC
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
