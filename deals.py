@@ -65,8 +65,8 @@ class GameDealsFinder:
         normal_price = f"${deal['normalPrice']}"
         
         # Start with alert and the game title
-        tweet = f"🚨 New Deal Alert: 🎮\n\n"
-        tweet += f"{deal['title']}\n"
+        tweet = f"🚨 New Deal Alert:\n\n"
+        tweet += f"🎮 {deal['title']}\n"
         tweet += f"💰 {sale_price} (was {normal_price}, -{savings}%)\n"
         tweet += f"🏪 {store_name}\n"
         
